@@ -1,4 +1,4 @@
-# volusoin v1 api client for nodejs
+# volusion v1 api client for nodejs
 
 Integrate with the [Volusion V1 API](https://app.apiary.io/volusionv1adminapi/editor).
 
