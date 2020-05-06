@@ -1,0 +1,29 @@
+{
+  "name": "@volusion/v1-api",
+  "version": "0.1.0",
+  "description": "node client for Volusion V1 API",
+  "main": "volusion-v1-api.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Volusion (https://volusion.com)",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "querystring": "^0.2.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
+    "jest": "^25.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volusion/v1-api-javascript-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/volusion/v1-api-javascript-sdk/issues"
+  },
+  "homepage": "https://github.com/volusion/v1-api-javascript-sdk#readme"
+}
