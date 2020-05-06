@@ -7,7 +7,7 @@ Integrate with the [Volusion V1 API](https://app.apiary.io/volusionv1adminapi/ed
 Use this package in your project by doing:
 
 ```bash
-npm install @volusion/v1-api
+npm install @volusion/v1-api (not published on npm yet, for now just clone this repo)
 ```
 
 
@@ -22,10 +22,10 @@ const v1 = new v1Client({
 });
 
 // call an endpoint
-const data = await v1.getOrders();
+const data = await v1.getCart();
 
 // use the data
-const order = data.items[0]; // for this sample, let's look at the first order in the array
+const item = data.data.items[0]; // for this sample, let's look at the first item in the cart
 
 ```
 
