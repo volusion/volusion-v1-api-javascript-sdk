@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
-    "querystring": "^0.2.0"
+    "querystring": "^0.2.0",
+    "set-cookie-parser": "^2.4.5"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.8.3",

@@ -1,5 +1,7 @@
 const axios = require('axios');
 const querystring = require('querystring');
+const setCookie = require('set-cookie-parser');
+const apiPath = '/api/v1'
 
 module.exports = class v1Api {
 
@@ -7,10 +9,36 @@ module.exports = class v1Api {
         this.config = config;
     }
 
-    // Carts
+    createCart = async function createCart(productCode) {
+        // we don't have an api endpoint for this yet, so it's a lot of code, sorry!
+        const addToCartUrl = this.config.baseUrl + `/shoppingcart.asp?productcode=${productCode}`
+        const response = await axios({
+            method: "get",
+            url: addToCartUrl,
+            maxRedirects: 0,
+            validateStatus: function(status) {
+                return status >= 200 && status < 303;
+            },
+        });
+        const setCookieHeader = response.headers['set-cookie'];
+        const cookies = setCookie.parse(setCookieHeader, {
+            decodeValues: true,
+            map: true
+        })
+        const cartId = cookies['CartID5'].value
+        return cartId;
+    }
 
     getCart = async function getCart(id, options) {
         return await this.makeV1ApiRequest({method: "GET", url: `/carts/${id}` + otq(options)})
+    }
+
+    addUser = async function addUser(data) {
+        return await this.makeV1ApiRequest({method: "POST", url: `/users`, data: data})
+    }
+
+    addOrder = async function addOrder(cartId, data) {
+        return await this.makeV1ApiRequest({method: "POST", url: `/orders/${cartId}`, data: data})
     }
 
     //*********************************************************
@@ -19,9 +47,10 @@ module.exports = class v1Api {
             const { data } = await axios({
                 headers: {
                     "Authorization": this.config.apiKey,
+                    "vMethod": r.method,
                     "Content-Type": "application/json"
                 },
-                url: this.config.baseUrl + r.url,
+                url: this.config.baseUrl + apiPath + r.url,
                 method: r.method,
                 data: r.data || null
             });

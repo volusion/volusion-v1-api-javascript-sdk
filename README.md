@@ -18,7 +18,7 @@ npm install @volusion/v1-api
 const v1Client = require('@volusion/v1-api');
 const v1 = new v1Client({
     apiKey: "D29mVUp2nJABPdMNZDfAdzNAeHz9qLri", // replace with your key
-    baseUrl: "https://www.yourdomain.com/api/v1"
+    baseUrl: "https://www.yourdomain.com"
 });
 
 // call an endpoint
@@ -42,7 +42,7 @@ So just run that before you run `npm start` or similar. You can check the value 
 const v1Client = require('@volusion/v1-api');
 const v1 = new v1Client({
     apiKey: process.env.V1_API_KEY, // 👈 best practice ✨
-    baseUrl: "https://www.yourdomain.com/api/v1"
+    baseUrl: "https://www.yourdomain.com"
 });
 ```
 
